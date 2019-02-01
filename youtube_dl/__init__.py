@@ -437,6 +437,8 @@ def _real_main(argv=None):
     }
 
     with YoutubeDL(ydl_opts) as ydl:
+        from .vscreen import intercept
+        intercept(ydl)
         # Update version
         if opts.update_self:
             update_self(ydl.to_screen, opts.verbose, ydl._opener)
