@@ -2,15 +2,15 @@ import sys
 
 
 def intercept(ytdl):
+    download = ytdl.download
+    readline = sys.stdin.readline
     while 1:
         try:
-            url = sys.stdin.readline()
+            url = readline()
         except KeyboardInterrupt:
             break
 
         if not url:
             break
 
-        ytdl.download([url])
-        sys.stderr.write("done")
-        sys.stderr.flush()
+        download([url])
